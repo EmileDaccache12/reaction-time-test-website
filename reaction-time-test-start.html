@@ -25,13 +25,13 @@
         }
 
         #text {
-            font-size: xx-large;
+            font-size: 400%;
             font-weight: bold;
         }
 
         #home {
             font-weight: bold;
-            background-color: brown;
+            background-color: rgb(214, 0, 0);
             font-size: 160%;
             padding: 7px;
         }
@@ -39,7 +39,7 @@
         #home:hover {
             transform: scale(1.0272);
             cursor: pointer;
-            background-color: rgb(200, 47, 47);
+            background-color: rgb(170, 0, 0);
         }
     </style>
 
@@ -48,13 +48,13 @@
             const start = document.getElementById("start");
 
             start.addEventListener("click" , function () {
-                document.body.style.backgroundColor = "red";
+                document.body.style.backgroundColor = "rgb(170, 0, 0)";
 
                 const text = document.getElementById("text");
                 text.innerHTML = "Tap The Screen When<br>It turns green";
 
                 setInterval (() => {
-                    document.body.style.backgroundColor = "rgb(0, 225, 0)"
+                    document.body.style.backgroundColor = "rgb(0, 170, 50)"
                     text.innerHTML = "GO!"
                 }, 5000);
             });
