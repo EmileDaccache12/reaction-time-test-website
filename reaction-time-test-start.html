@@ -47,7 +47,7 @@
         document.addEventListener("DOMContentLoaded" , () => {
             const start = document.getElementById("start");
             let started = false;
-            let display = document.getElementById("timer");
+
             let timer = 0;
 
             start.addEventListener("click" , function () {
@@ -62,9 +62,9 @@
                 setTimeout (() => {
                     document.body.style.backgroundColor = "rgb(0, 170, 50)"
                 setInterval (() => {
-                    timer = timer + 1;
+                    timer = timer + 0.01;
 
-                    display.innerHTML = timer;
+                    text.innerHTML = timer.toFixed(2);
                 }, 10);
                 }, 5000);
             });
@@ -79,7 +79,6 @@
     <div id="intro">
         <button id="start">
             <h1 id="text">Click Anywhere On The Screen To start The test</h1>
-            <h1 id="timer"></h1>
         </button>
     </div>
 </body>
