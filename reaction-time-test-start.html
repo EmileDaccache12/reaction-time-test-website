@@ -46,6 +46,7 @@
     <script>
         document.addEventListener("DOMContentLoaded" , () => {
             const start = document.getElementById("start");
+            const body = document.body;
             let started = false;
 
             let timer = 0;
@@ -54,18 +55,25 @@
                 if (started) return;
                 started = true
 
-                document.body.style.backgroundColor = "rgb(170, 0, 0)";
+                body.style.backgroundColor = "rgb(170, 0, 0)";
 
                 const text = document.getElementById("text");
                 text.innerHTML = "Tap The Screen When<br>It turns green";
 
                 setTimeout (() => {
-                    document.body.style.backgroundColor = "rgb(0, 170, 50)"
-                setInterval (() => {
+                    body.style.backgroundColor = "rgb(0, 170, 50)"
+                const interval = setInterval (() => {
                     timer = timer + 0.01;
 
                     text.innerHTML = timer.toFixed(2);
                 }, 10);
+                if (body.style.backgroundColor === "rgb(0, 170, 50)") {
+                    started = true;
+                    start.addEventListener("click" , function() {
+                        timer = false;
+                        clearInterval(interval);
+                    });
+                }
                 }, 5000);
             });
         })
