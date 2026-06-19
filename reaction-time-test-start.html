@@ -46,16 +46,26 @@
     <script>
         document.addEventListener("DOMContentLoaded" , () => {
             const start = document.getElementById("start");
+            let started = false;
+            let display = document.getElementById("timer");
+            let timer = 0;
 
             start.addEventListener("click" , function () {
+                if (started) return;
+                started = true
+
                 document.body.style.backgroundColor = "rgb(170, 0, 0)";
 
                 const text = document.getElementById("text");
                 text.innerHTML = "Tap The Screen When<br>It turns green";
 
-                setInterval (() => {
+                setTimeout (() => {
                     document.body.style.backgroundColor = "rgb(0, 170, 50)"
-                    text.innerHTML = "GO!"
+                setInterval (() => {
+                    timer = timer + 1;
+
+                    display.innerHTML = timer;
+                }, 10);
                 }, 5000);
             });
         })
@@ -69,6 +79,7 @@
     <div id="intro">
         <button id="start">
             <h1 id="text">Click Anywhere On The Screen To start The test</h1>
+            <h1 id="timer"></h1>
         </button>
     </div>
 </body>
