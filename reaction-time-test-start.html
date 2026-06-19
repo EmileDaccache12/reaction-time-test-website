@@ -61,19 +61,12 @@
                 if (started) return;
                 started = true
 
-                const random = Math.floor(Math.random() * 4501) + 3500;
+                const random = Math.floor(Math.random() * 4501) + 3000;
 
                 body.style.backgroundColor = "rgb(170, 0, 0)";
 
                 const text = document.getElementById("text");
                 text.innerHTML = "Tap The Screen When<br>It turns green";
-
-                if (body.style.backgroundColor === "rgb(170, 0, 0)") {
-                    start.addEventListener("click" , function() {
-                        clearTimeout(timeout)
-                        text.innerHTML = "you failed"
-                    });
-                }
 
                 const timeout = setTimeout (() => {
                     body.style.backgroundColor = "rgb(0, 170, 50)"
@@ -85,13 +78,13 @@
                 if (body.style.backgroundColor === "rgb(0, 170, 50)") {
                     started = true;
                     start.addEventListener("click" , function() {
-                        timer = false;
                         clearInterval(interval);
                     });
                 }
                 }, random);
             });
-        })
+            
+        });
     </script>
 </head>
 <body>
