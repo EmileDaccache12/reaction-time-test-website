@@ -68,7 +68,14 @@
                 const text = document.getElementById("text");
                 text.innerHTML = "Tap The Screen When<br>It turns green";
 
-                setTimeout (() => {
+                if (body.style.backgroundColor === "rgb(170, 0, 0)") {
+                    start.addEventListener("click" , function() {
+                        clearTimeout(timeout)
+                        text.innerHTML = "you failed"
+                    });
+                }
+
+                const timeout = setTimeout (() => {
                     body.style.backgroundColor = "rgb(0, 170, 50)"
                 const interval = setInterval (() => {
                     timer = timer + 0.01;
