@@ -87,6 +87,15 @@
                 const text = document.getElementById("text");
                 text.innerHTML = "Tap The Screen When<br>It turns green";
 
+                start.addEventListener("click" , function() {
+                    if (body.style.backgroundColor === "rgb(170, 0, 0)") {
+                        text.innerHTML = "You Failed";
+                        clearTimeout(timeout);
+                        restart.style.display = "block";
+                    }
+                });
+                
+
                 const timeout = setTimeout (() => {
                     body.style.backgroundColor = "rgb(0, 170, 50)"
                 const interval = setInterval (() => {
@@ -94,7 +103,6 @@
 
                     text.innerHTML = timer.toFixed(2);
 
-                    restart.innerHTML = "restart";
                     restart.style.display = "block";
                 }, 10);
                 if (body.style.backgroundColor === "rgb(0, 170, 50)") {
@@ -120,7 +128,7 @@
         <button id="start">
             <h1 id="text">Click Anywhere On The Screen To start The test</h1>
 
-            <button id="restart"></button>
+            <button id="restart">Restart</button>
         </button>
     </div>
 </body>
